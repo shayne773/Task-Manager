@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<script src="/socket.io/socket.io.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body class = "col-md-12 bg-dark">
+<script src="main.js" type="module"></script>
+    <div class="row" id="authentication-content">
+        <div class="col-md-4 mx-auto" id="login-form">
+            <h1>Login</h1>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="login-username">Username:</label>
+                    <input type="text" class="form-control" id="login-username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password:</label>
+                    <input type="password" class="form-control" id="login-password" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+            <a id="register-page-link" href="#">do not have an account? register</a>
+            <div id="login-error-message" style="color: crimson;"></div>
+        </div>
+        <div class="col-md-4 mx-auto" id="register-form">
+            <h1>Register</h1>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="register-username">Username:</label>
+                    <input type="text" class="form-control" id="register-username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Password:</label>
+                    <input type="password" class="form-control" id="register-password" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Register</button>
+            </form>
+            <a id="login-page-link" href="#">have an account? log in</a>
+            <div id="register-error-message" style="color: crimson;"></div>
+        </div>
+    </div>
+    <div class="row full-height" id="task-content">
+        <div class="col-md-2" id="sidebar">        
+            <nav>
+                <ul>
+                <li id="show-tasks-btn">
+                    <div class="home-icon">
+                    <div class="roof">
+                        <div class="roof-edge"></div>
+                    </div>
+                    <div class="front"></div>
+                    </div>
+                </li>
+                <li id="show-add-task-form-btn">
+                    <div class="about-icon">
+                    <div class="head">
+                        <div class="eyes"></div>
+                        <div class="beard"></div>
+                    </div>
+                    </div>
+                </li>
+                <li id="show-search-tasks-form-btn">
+                    <div class="work-icon">
+                    <div class="paper"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    <div class="lines"></div>
+                    </div>
+                </li>
+                <li id="show-settings-form-btn">
+                    <div class="mail-icon">
+                    <div class="mail-base">
+                        <div class="mail-top"></div>
+                    </div>
+                    </div>
+                </li>
+                </ul>
+            </nav>
+        </div>
+        <!-- Main Content -->
+        <div class="col-md-9">
+            <div class="row">
+                <div class="col-md-9">
+                    <form id="taskForm">
+                        <h1>Add Task</h1>
+                        <div class="form-group">
+                            <label for="taskName">Task Name:</label>
+                            <input type="text" class="form-control bg-dark text-light" id="taskName" name="taskName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="deadlineDate">Deadline Date:</label>
+                            <input type="date" class="form-control bg-dark text-light" id="deadlineDate" name="deadlineDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="deadlineTime">Deadline Time:</label>
+                            <input type="time" class="form-control bg-dark text-light" id="deadlineTime" name="deadlineTime" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add Task</button>
+                        <button type="button" id="remove-btn" class="btn btn-primary">Remove Selected Tasks</button>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                    <form id="searchForm">
+                        <h1>Search Task</h1>
+                        <div class="form-group">
+                            <label for="search-taskName">Task Name:</label>
+                            <input type="text" class="form-control bg-dark text-light" id="search-taskName" name="taskName" required>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12" id="allTasks">
+                    <h2 class="mt-5">Tasks</h2>
+                    <div id="tasks" class="list-group list-group-light">
+                        <!-- Tasks will be dynamically added here -->
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class = "col-md-9">
+                    <form id="settingsForm">
+                        <h1>Profile Settings</h1>
+                        <div class="form-group">
+                            <label for="username">Change Username:</label>
+                            <input type="text" class="form-control" id="username">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Change Password:</label>
+                            <input type="password" class="form-control" id="password">
+                        </div>
+                        <div class="form-group">
+                            <label for="oldPassword">Old Password:</label>
+                            <input type="password" class="form-control" id="oldPassword" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="saveSettingsBtn">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
